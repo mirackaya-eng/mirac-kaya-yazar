@@ -1,73 +1,13 @@
 <!doctype html>
-<html lang="tr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Miraç Kaya | Yazar</title>
-<style>
-:root{--bordo:#6f0f22;--bordo2:#9d1732;--siyah:#090909;--kart:#141414;--yazi:#f5eee9;--muted:#bcaeaa}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 20% 0%,#42101d 0,#11090b 28%,#090909 65%);color:var(--yazi);font-family:Georgia,serif}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(135deg,rgba(157,23,50,.12),transparent 45%,rgba(0,0,0,.4))}
-nav{position:sticky;top:0;z-index:10;background:rgba(8,8,8,.9);backdrop-filter:blur(12px);border-bottom:1px solid #3c121d;padding:15px 6%;display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:800;letter-spacing:2px}.logo span{color:#b62a48}
-nav a{color:#eee;text-decoration:none;margin-left:20px;font-size:14px}
-.hero{min-height:82vh;display:grid;place-items:center;padding:70px 6%;text-align:center}
-.hero-inner{max-width:900px}.eyebrow{color:#d65b75;letter-spacing:4px;font-size:13px;text-transform:uppercase}
-h1{font-size:clamp(48px,9vw,100px);margin:18px 0 12px;line-height:.95}
-.hero p{font-size:clamp(20px,3vw,29px);color:#e5d6d1;font-style:italic;line-height:1.5}
-.btn{display:inline-block;margin-top:22px;background:var(--bordo2);color:#fff;text-decoration:none;padding:14px 24px;border-radius:7px;font-family:Arial,sans-serif;font-weight:700}
-section{padding:80px 6%;max-width:1150px;margin:auto}h2{font-size:38px;margin-top:0}.line{width:75px;height:4px;background:var(--bordo2);margin:18px 0 35px}
-.about{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
-.about-card,.book{background:linear-gradient(145deg,#191919,#0e0e0e);border:1px solid #3c1821;border-radius:18px;padding:28px;box-shadow:0 20px 50px #0008}
-.about-card p{font-family:Arial,sans-serif;line-height:1.8;color:#d7cbca}
-.identity{min-height:420px;border-radius:18px;background:linear-gradient(145deg,#260914,#090909);display:flex;align-items:end;padding:28px;border:1px solid #4d1725}
-.identity strong{font-size:30px}.identity small{display:block;color:#d8c7c4;margin-top:6px}
-.books{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
-.book-cover{height:300px;border-radius:12px;background:linear-gradient(135deg,#300812,#050505);display:grid;place-items:center;text-align:center;padding:25px;border:1px solid #54202c}
-.book-cover b{font-size:28px}.book p{font-family:Arial,sans-serif;color:#cfc3c0;line-height:1.65}
-.meta{font-family:Arial,sans-serif;color:#9f8f8c;font-size:13px}
-footer{padding:45px 6%;border-top:1px solid #35121b;text-align:center;color:#a99b98;font-family:Arial,sans-serif}
-@media(max-width:750px){nav{align-items:flex-start}nav div:last-child{display:none}.about{grid-template-columns:1fr}.identity{min-height:340px}}
-</style>
-</head>
-<body>
-<nav><div class="logo">MİRAÇ <span>KAYA</span></div><div><a href="#hakkimda">Hakkımda</a><a href="#kitaplar">Kitaplar</a><a href="#iletisim">İletişim</a></div></nav>
-<header class="hero">
-<div class="hero-inner">
-<div class="eyebrow">Genç Yazar • Şair • Tarih Meraklısı</div>
-<h1>Miraç Kaya</h1>
-<p>“En güzel dava vatan davasıdır. Davası olmayanlar koyundan farksızdır.”</p>
-<a class="btn" href="#kitaplar">Kitapları Gör</a>
-</div>
-</header>
-<section id="hakkimda">
-<h2>Hakkımda</h2><div class="line"></div>
-<div class="about">
-<div class="about-card">
-<p>Artvin’in Yusufeli ilçesinde yaşayan Miraç Kaya, 2010 doğumlu genç bir yazar ve şiir meraklısıdır. İlkokul yıllarından beri yazıyla ilgilenmektedir.</p>
-<p>Üçüncü sınıfta öğretmeni Fatih Aksoy ve 25 arkadaşıyla ortak bir kitap çalışmasına katıldı. Şiirler yazdı, 15 Temmuz temalı bir şiirle ilçe programında yer aldı. Zeybek oynuyor, şiir okuyor ve etkinliklerde sunuculuk yapıyor.</p>
-<p>Ülke çapındaki münazara ve şiir yarışmalarına katılan Miraç, kitapları aracılığıyla toplumsal farkındalık oluşturmayı amaçlıyor. Tarih üzerine konuştuğu Instagram hesabında da çalışmalarını paylaşıyor.</p>
-</div>
-<div class="identity"><div><strong>Miraç Kaya</strong><small>Yusufeli / Artvin · @maresal_muverrih</small></div></div>
-</div>
-</section>
-<section id="kitaplar">
-<h2>Kitaplar</h2><div class="line"></div>
-<div id="books" class="books"></div>
-</section>
-<section id="iletisim">
-<h2>İletişim</h2><div class="line"></div>
-<div class="about-card">
-<p><b>E-posta:</b> mirackaya1208@gmail.com</p>
-<p><b>Instagram:</b> @maresal_muverrih</p>
-</div>
-</section>
-<footer>© <span id="year"></span> Miraç Kaya · Tüm hakları saklıdır.</footer>
-<script>
-const fallback=[{name:"Suskunların İsyanı",author:"Miraç Kaya",genre:"Roman",year:"2026",pages:"",status:"Yakında",price:"",link:"",short:"İnsanların zalim bir krala karşı ayağa kalkışını konu alan eser.",detail:"Yakında daha ayrıntılı bilgiler burada yer alacak.",quote:"",published:true}];
-function render(){let books=[];try{books=JSON.parse(localStorage.getItem("mirac_kaya_books_v5")||"[]")}catch(e){};books=books.filter(x=>x.published);if(!books.length)books=fallback;document.getElementById("books").innerHTML=books.map(b=>`<article class="book"><div class="book-cover"><b>${esc(b.name||"Kitap")}</b></div><h3>${esc(b.name||"")}</h3><div class="meta">${esc(b.author||"Miraç Kaya")} · ${esc(b.year||"")}</div><p>${esc(b.short||"")}</p>${b.status?`<div class="meta">${esc(b.status)}${b.price?" · "+esc(b.price):""}</div>`:""}${b.link?`<a class="btn" target="_blank" rel="noopener" href="${safeUrl(b.link)}">Bilgi / Satın Alma</a>`:""}</article>`).join("")}
-function esc(s){return String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]))}
-function safeUrl(u){try{let x=new URL(u);return /^https?:$/.test(x.protocol)?x.href:"#"}catch(e){return"#"}}
-document.getElementById("year").textContent=new Date().getFullYear();render();
-</script>
-</body></html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Miraç Kaya | Yazar</title>
+<style>:root{--bordo:#6f0f22;--bordo2:#9d1732;--siyah:#090909;--kart:#141414;--yazi:#f5eee9;--muted:#bcaeaa}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 20% 0%,#42101d 0,#11090b 28%,#090909 65%);color:var(--yazi);font-family:Georgia,serif}body:before{content:"";position:fixed;inset:0;pointer-events:none;background:linear-gradient(135deg,rgba(157,23,50,.12),transparent 45%,rgba(0,0,0,.4))}nav{position:sticky;top:0;z-index:10;background:rgba(8,8,8,.9);backdrop-filter:blur(12px);border-bottom:1px solid #3c121d;padding:15px 6%;display:flex;justify-content:space-between;align-items:center}.logo{font-weight:800;letter-spacing:2px}.logo span{color:#b62a48}nav a{color:#eee;text-decoration:none;margin-left:20px;font-size:14px}.hero{min-height:82vh;display:grid;place-items:center;padding:70px 6%;text-align:center}.hero-inner{max-width:900px}.eyebrow{color:#d65b75;letter-spacing:4px;font-size:13px;text-transform:uppercase}h1{font-size:clamp(48px,9vw,100px);margin:18px 0 12px;line-height:.95}.hero p{font-size:clamp(20px,3vw,29px);color:#e5d6d1;font-style:italic;line-height:1.5}.btn{display:inline-block;margin-top:22px;background:var(--bordo2);color:#fff;text-decoration:none;padding:14px 24px;border-radius:7px;font-family:Arial,sans-serif;font-weight:700}section{padding:80px 6%;max-width:1150px;margin:auto}h2{font-size:38px;margin-top:0}.line{width:75px;height:4px;background:var(--bordo2);margin:18px 0 35px}.about{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}.about-card,.book{background:linear-gradient(145deg,#191919,#0e0e0e);border:1px solid #3c1821;border-radius:18px;padding:28px;box-shadow:0 20px 50px #0008}.about-card p{font-family:Arial,sans-serif;line-height:1.8;color:#d7cbca}.identity{min-height:420px;border-radius:18px;background:linear-gradient(145deg,#260914,#090909);display:flex;align-items:end;padding:28px;border:1px solid #4d1725}.identity strong{font-size:30px}.identity small{display:block;color:#d8c7c4;margin-top:6px}.books{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}.book-cover{height:300px;border-radius:12px;background:linear-gradient(135deg,#300812,#050505);display:grid;place-items:center;text-align:center;padding:25px;border:1px solid #54202c;overflow:hidden}.book-cover img{width:100%;height:100%;object-fit:cover}.book-cover b{font-size:28px}.book p{font-family:Arial,sans-serif;color:#cfc3c0;line-height:1.65}.meta{font-family:Arial,sans-serif;color:#9f8f8c;font-size:13px}footer{padding:45px 6%;border-top:1px solid #35121b;text-align:center;color:#a99b98;font-family:Arial,sans-serif}.empty{font-family:Arial,sans-serif;color:#bcaeaa}.error{color:#e6a6b2;font-family:Arial,sans-serif}@media(max-width:750px){nav{align-items:flex-start}nav div:last-child{display:none}.about{grid-template-columns:1fr}.identity{min-height:340px}}</style></head>
+<body><nav><div class="logo">MİRAÇ <span>KAYA</span></div><div><a href="#hakkimda">Hakkımda</a><a href="#kitaplar">Kitaplar</a><a href="#iletisim">İletişim</a></div></nav>
+<header class="hero"><div class="hero-inner"><div class="eyebrow">Genç Yazar • Şair • Tarih Meraklısı</div><h1>Miraç Kaya</h1><p>“En güzel dava vatan davasıdır. Davası olmayanlar koyundan farksızdır.”</p><a class="btn" href="#kitaplar">Kitapları Gör</a></div></header>
+<section id="hakkimda"><h2>Hakkımda</h2><div class="line"></div><div class="about"><div class="about-card"><p>Artvin’in Yusufeli ilçesinde yaşayan Miraç Kaya, 2010 doğumlu genç bir yazar ve şiir meraklısıdır. İlkokul yıllarından beri yazıyla ilgilenmektedir.</p><p>Üçüncü sınıfta öğretmeni Fatih Aksoy ve 25 arkadaşıyla ortak bir kitap çalışmasına katıldı. Şiirler yazdı, 15 Temmuz temalı bir şiirle ilçe programında yer aldı. Zeybek oynuyor, şiir okuyor ve etkinliklerde sunuculuk yapıyor.</p><p>Ülke çapındaki münazara ve şiir yarışmalarına katılan Miraç, kitapları aracılığıyla toplumsal farkındalık oluşturmayı amaçlıyor. Tarih üzerine konuştuğu Instagram hesabında da çalışmalarını paylaşıyor.</p></div><div class="identity"><div><strong>Miraç Kaya</strong><small>Yusufeli / Artvin · @maresal_muverrih</small></div></div></div></section>
+<section id="kitaplar"><h2>Kitaplar</h2><div class="line"></div><div id="books" class="books"><div class="empty">Kitaplar yükleniyor...</div></div></section>
+<section id="iletisim"><h2>İletişim</h2><div class="line"></div><div class="about-card"><p><b>E-posta:</b> mirackaya1208@gmail.com</p><p><b>Instagram:</b> @maresal_muverrih</p></div></section><footer>© <span id="year"></span> Miraç Kaya · Tüm hakları saklıdır.</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
+const SUPABASE_URL='https://hskohhdppvhwdfqausrp.supabase.co';const SUPABASE_KEY='sb_publishable_CBHqPR8qePHdGlQefycjUQ_SxH-X4fh';const sb=window.supabase.createClient(SUPABASE_URL,SUPABASE_KEY);
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}function safeUrl(u){try{const x=new URL(u);return /^https?:$/.test(x.protocol)?x.href:'#'}catch(e){return '#'}}
+async function render(){const box=document.getElementById('books');const {data,error}=await sb.from('books').select('*').eq('published',true).order('created_at',{ascending:false});if(error){box.innerHTML='<div class="error">Kitaplar şu anda yüklenemedi.</div>';return}if(!data?.length){box.innerHTML='<div class="empty">Henüz yayınlanmış kitap bulunmuyor.</div>';return}box.innerHTML=data.map(b=>`<article class="book"><div class="book-cover">${b.cover_image_url?`<img src="${safeUrl(b.cover_image_url)}" alt="${esc(b.name)} kapak">`:`<b>${esc(b.name||'Kitap')}</b>`}</div><h3>${esc(b.name||'')}</h3><div class="meta">${esc(b.author||'Miraç Kaya')}${b.publication_year?' · '+esc(b.publication_year):''}${b.page_count?' · '+esc(b.page_count)+' sayfa':''}</div><p>${esc(b.short_description||'')}</p>${b.status||b.price?`<div class="meta">${esc(b.status||'')}${b.price?' · '+esc(b.price):''}</div>`:''}${b.purchase_link?`<a class="btn" target="_blank" rel="noopener" href="${safeUrl(b.purchase_link)}">Bilgi / Satın Alma</a>`:''}</article>`).join('')}
+document.getElementById('year').textContent=new Date().getFullYear();render();</script></body></html>
