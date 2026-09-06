@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Miraç Kaya | Yönetici</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#080808,#270812);color:#fff;font-family:Arial,sans-serif;padding:24px}
+.wrap{max-width:900px;margin:auto}.panel{background:#111;border:1px solid #541a2a;border-radius:18px;padding:25px;box-shadow:0 20px 60px #0008}h1{font-family:Georgia,serif;font-size:38px;margin-top:0}p{color:#cdbfbd}label{display:block;margin:16px 0 7px;font-weight:700}input,textarea,select{width:100%;padding:13px;border-radius:8px;border:1px solid #4b222c;background:#080808;color:#fff;font-size:15px}textarea{min-height:100px;resize:vertical}.grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}button{border:0;border-radius:8px;padding:13px 18px;font-weight:800;cursor:pointer;background:#9d1732;color:#fff}button.alt{background:#292929}.ok{margin-top:16px;padding:12px;border-radius:8px;background:#173b25;display:none}.list{margin-top:25px}.item{padding:14px;border:1px solid #39202a;border-radius:10px;margin-top:10px;display:flex;justify-content:space-between;gap:10px;align-items:center}.muted{color:#9e918f;font-size:13px}@media(max-width:650px){.grid{grid-template-columns:1fr}body{padding:12px}}
+</style></head><body><div class="wrap"><div class="panel">
+<h1>Kitap Yönetim Paneli</h1><p>Bu ekran yalnızca kitap verisini yönetmek içindir. Yayınlanan kayıtlar ziyaretçi sitesinde görünür.</p>
+<form id="bookForm">
+<label>Kitap adı</label><input id="name" required>
+<div class="grid"><div><label>Yazar</label><input id="author" value="Miraç Kaya"></div><div><label>Tür</label><input id="genre"></div></div>
+<div class="grid"><div><label>Yayın yılı</label><input id="year" type="number"></div><div><label>Sayfa sayısı</label><input id="pages" type="number"></div></div>
+<div class="grid"><div><label>Durum</label><select id="status"><option>Yakında</option><option>Yayında</option><option>Tükendi</option></select></div><div><label>Fiyat</label><input id="price" placeholder="Örn. 250 TL"></div></div>
+<label>Satın alma / bilgi bağlantısı</label><input id="link" placeholder="https://...">
+<label>Kısa açıklama</label><textarea id="short"></textarea>
+<label>Detaylı bilgi</label><textarea id="detail"></textarea>
+<label>Alıntı</label><textarea id="quote"></textarea>
+<label>Kapak görseli</label><input id="cover" type="file" accept="image/*">
+<label><input id="published" type="checkbox" style="width:auto"> Ziyaretçilere yayınla</label>
+<div class="actions"><button type="submit">KİTABI KAYDET / YAYINLA</button><button type="button" class="alt" onclick="clearForm()">Formu Temizle</button></div>
+<div id="ok" class="ok">Kitap başarıyla kaydedildi.</div></form>
+<div class="list"><h2>Kayıtlı Kitaplar</h2><div id="list"></div></div>
+</div></div>
+<script>
+const KEY="mirac_kaya_books_v5"; let books=[]; try{books=JSON.parse(localStorage.getItem(KEY)||"[]")}catch(e){books=[]}
+function $(id){return document.getElementById(id)}
+function saveBook(e){e.preventDefault();const b={id:Date.now(),name:$('name').value.trim(),author:$('author').value.trim(),genre:$('genre').value.trim(),year:$('year').value,pages:$('pages').value,status:$('status').value,price:$('price').value.trim(),link:$('link').value.trim(),short:$('short').value.trim(),detail:$('detail').value.trim(),quote:$('quote').value.trim(),cover:$('cover').files[0]?.name||"",published:$('published').checked};books.push(b);localStorage.setItem(KEY,JSON.stringify(books));$('ok').style.display='block';render();$('bookForm').reset();$('author').value='Miraç Kaya';setTimeout(()=>{$('ok').style.display='none'},2500);return false}
+function clearForm(){$('bookForm').reset();$('author').value='Miraç Kaya'}
+function removeBook(id){books=books.filter(b=>b.id!==id);localStorage.setItem(KEY,JSON.stringify(books));render()}
+function render(){$('list').innerHTML=books.length?books.map(b=>`<div class="item"><div><b>${esc(b.name)}</b><div class="muted">${b.published?'YAYINDA':'TASLAK'} · ${esc(b.status||'')}</div></div><button class="alt" onclick="removeBook(${b.id})">Sil</button></div>`).join(''):"<p class='muted'>Henüz kitap yok.</p>"}
+function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
+render();
+</script></body></html>
